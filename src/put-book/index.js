@@ -18,7 +18,7 @@ const tableName = process.env.TABLE;
 exports.handler = async event => {
     try {
         const book = JSON.parse(event.Records[0].body);
-        const {isbn, title, year, author, review} = book;
+        const {isbn, title, year, author, review, summary} = book;
 
         const params = {
             TableName: tableName,
@@ -27,7 +27,8 @@ exports.handler = async event => {
                 title: {S: title},
                 year: {S: year},
                 author: {S: author},
-                reviews: {N: review.toString()}
+                reviews: {N: review.toString()},
+                summary: {S: summary}
             }
         };
         await client.putItem(params).promise();

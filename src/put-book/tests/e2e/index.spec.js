@@ -29,7 +29,6 @@ describe('put book tests', () => {
       };
 
       const {Item} = await ddbClient.getItem(ddbParams).promise();
-      console.log(Item);
       expect(Item).not.to.be.undefined;
     });
 
