@@ -15,7 +15,7 @@ describe('put book tests', () => {
 
     it('should insert book in DynamoDB table', async () => {
       // Arrange
-      const bookToPut = {isbn: '1', title: 'Best seller', year: '1999', author: 'John Doe', review: 4, summary: 'plot'};
+      const bookToPut = {isbn: '1', title: 'Best seller', year: '1999', author: 'John Doe', review: 4};
       const event = {Records: [{body: JSON.stringify(bookToPut)}]};
 
       // Act
