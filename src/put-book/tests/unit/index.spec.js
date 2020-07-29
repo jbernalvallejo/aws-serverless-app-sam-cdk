@@ -27,7 +27,7 @@ describe('put book tests', () => {
 
   it('should put book', async () => {
     // Arrange    
-    const bookToPut = {isbn: '1', title: 'Best seller', year: '1999', author: 'John Doe', review: 4, summary: 'plot'};
+    const bookToPut = {isbn: '1', title: 'Best seller', year: '1999', author: 'John Doe', review: 4};
     const event = {Records: [{body: JSON.stringify(bookToPut)}]};
 
     // Act
@@ -37,7 +37,7 @@ describe('put book tests', () => {
     expect(dynamoDBstub.putItem).to.have.been.calledWith({
       TableName: 'books', 
       Item: {
-        author: { S: 'John Doe' }, isbn: { S: '1' }, reviews: { N: '4' }, title: { S: 'Best seller' }, year: { S: '1999' }, summary: { S: 'plot'}
+        author: { S: 'John Doe' }, isbn: { S: '1' }, reviews: { N: '4' }, title: { S: 'Best seller' }, year: { S: '1999' }
       }
     });
   });
