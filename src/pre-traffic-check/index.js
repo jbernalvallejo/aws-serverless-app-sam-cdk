@@ -16,7 +16,7 @@ exports.handler = async event => {
         const functionToTest = process.env.FN_NEW_VERSION;
         console.log('Testing new function version: ' + functionToTest);
     
-        const book = {isbn: '1-111-111-111', title:'Test', year: '111', author: 'Test', review: 1, summary: 'plot'};
+        const book = {isbn: '1-111-111-111', title:'Test', year: '111', author: 'Test', review: 1};
         const sqsEvent = {Records:[{body: JSON.stringify(book)}]};
         const lParams = {
             FunctionName: functionToTest,
