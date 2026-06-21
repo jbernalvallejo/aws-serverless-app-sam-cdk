@@ -6,7 +6,7 @@
         "nodejs": 24
       },
       "commands": [
-        "docker run -d -p 8000:8000 --name dynamodb amazon/dynamodb-local",
+        "docker run -d -p 8000:8000 --name dynamodb amazon/dynamodb-local -jar DynamoDBLocal.jar -sharedDb",
         "aws dynamodb create-table --table-name $TABLE --attribute-definitions AttributeName=isbn,AttributeType=S --key-schema AttributeName=isbn,KeyType=HASH --endpoint-url http://localhost:8000 --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5"
       ]
     },
